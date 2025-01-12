@@ -1,0 +1,14 @@
+[Unit]
+Description=Web App
+After=cloud-final.service
+
+[Service]
+WorkingDirectory=/home/ec2-user/
+ExecStart=/usr/bin/node /home/ec2-user/src/app.js
+StandardOutput= append:/var/log/csye6225.log
+StandardError= append:/var/log/csye6225.log
+Restart=on-failure
+User=ec2-user
+
+[Install]
+WantedBy=cloud-init.target
